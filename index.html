@@ -16,11 +16,21 @@
   } else {
     document.getElementById('location').textContent = 'La geolocalización no está disponible en este navegador.';
   }
-
-  // Obtén la fecha y hora
-  var date = new Date();
-  document.getElementById('datetime').textContent = date.toLocaleString();
 </script>
+	
+	<script>
+  function showDateAndTime() {
+    var date = new Date();
+    document.getElementById('fechaHora').textContent = date.toLocaleString();
+  }
+
+  // Llama a la función una vez al inicio para mostrar la fecha y hora inmediatamente
+  showDateAndTime();
+
+  // Luego actualiza la fecha y hora cada segundo (1000 milisegundos)
+  setInterval(showDateAndTime, 1000);
+</script>
+
 
   <!-- Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -37,10 +47,9 @@
   <p id="location">Obteniendo ubicación...</p>
 </div>
 
-<!-- Fecha y hora -->
 <div class="form-group">
-  <label>📅 Fecha y hora</label>
-  <p id="datetime"></p>
+  <label for="fechaHora">📅 Fecha y hora</label>
+  <p id="fechaHora"></p>
 </div>
 
 	  
