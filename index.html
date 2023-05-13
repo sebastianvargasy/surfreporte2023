@@ -5,6 +5,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script>
+  // Obtén la ubicación
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      document.getElementById('location').textContent = 'Latitud: ' + position.coords.latitude + ', Longitud: ' + position.coords.longitude;
+    }, function() {
+      document.getElementById('location').textContent = 'No se pudo obtener la ubicación.';
+    });
+  } else {
+    document.getElementById('location').textContent = 'La geolocalización no está disponible en este navegador.';
+  }
+
+  // Obtén la fecha y hora
+  var date = new Date();
+  document.getElementById('datetime').textContent = date.toLocaleString();
+</script>
 
   <!-- Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -15,6 +31,20 @@
   <div class="container my-4">
     <h1>Informe de Surf</h1>
 
+	  <!-- Lugar -->
+<div class="form-group">
+  <label>📍 Lugar</label>
+  <p id="location">Obteniendo ubicación...</p>
+</div>
+
+<!-- Fecha y hora -->
+<div class="form-group">
+  <label>📅 Fecha y hora</label>
+  <p id="datetime"></p>
+</div>
+
+	  
+	  
     <!-- Altura de las Olas -->
     <div class="form-group">
       <label for="alturaOlas">🌊 Altura de las Olas</label>
