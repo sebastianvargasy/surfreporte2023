@@ -217,23 +217,22 @@
 
 
 <script>
-document.getElementById('compartirBtn').addEventListener('click', function() {
-  var lugar = document.getElementById('lugar').value;
-  var fechaHora = document.getElementById('fechaHoraSeleccionada').value;
-  var alturaOlas = document.getElementById('alturaOlas').value;
-  var periodoOlas = document.getElementById('periodoOlas').value;
-  var direccionOlas = document.getElementById('direccionOlas').value;
-  var condicionesViento = document.getElementById('condicionesViento').value;
-  var temperaturaAgua = document.getElementById('temperaturaAgua').value;
-  var marea = document.getElementById('marea').value;
-  var alertasSeguridad = document.getElementById('alertasSeguridad').value;
+  document.getElementById('compartirBtn').addEventListener('click', function() {
+    var lugar = document.getElementById('lugar').value;
+    var fechaHora = document.getElementById('fechaHoraSeleccionada').value;
+    // Agrega los demás campos aquí
 
-  var textoParaCompartir = "Lugar: " + lugar + "\nFecha y Hora: " + fechaHora + "\nAltura de las Olas: " + alturaOlas + "\nPeriodo de las Olas: " + periodoOlas + "\nDirección de las Olas: " + direccionOlas + "\nCondiciones del Viento: " + condicionesViento + "\nTemperatura del Agua: " + temperaturaAgua + "\nMarea: " + marea + "\nAlertas de Seguridad: " + alertasSeguridad;
+    var textoParaCompartir = "Lugar: " + lugar + "\nFecha y Hora: " + fechaHora;
+    // Agrega los demás campos aquí
 
-  // Ahora puedes usar 'textoParaCompartir' para compartir la información.
-  // Por ejemplo, puedes mostrarla en un alert:
-  alert(textoParaCompartir);
-});
+    navigator.clipboard.writeText(textoParaCompartir)
+      .then(function() {
+        alert("La información se ha copiado al portapapeles.");
+      })
+      .catch(function(error) {
+        console.error("Error al copiar la información: ", error);
+      });
+  });
 </script>
 
 	  <p> Versión: 0.0.1 </p>
