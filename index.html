@@ -159,6 +159,8 @@
     </div>
 	  
 	  <button class="btn btn-primary" onclick="downloadImage()">Descargar como imagen</button>
+	  <button class="btn btn-info" id="compartirBtn" class="btn btn-primary">Compartir como texto</button>
+
 
 	  
 	    <script>
@@ -197,6 +199,25 @@
   });
 </script>
 
+<script>
+document.getElementById('compartirBtn').addEventListener('click', function() {
+  var lugar = document.getElementById('lugar').value;
+  var fechaHora = document.getElementById('fechaHoraSeleccionada').value;
+  var alturaOlas = document.getElementById('alturaOlas').value;
+  var periodoOlas = document.getElementById('periodoOlas').value;
+  var direccionOlas = document.getElementById('direccionOlas').value;
+  var condicionesViento = document.getElementById('condicionesViento').value;
+  var temperaturaAgua = document.getElementById('temperaturaAgua').value;
+  var marea = document.getElementById('marea').value;
+  var alertasSeguridad = document.getElementById('alertasSeguridad').value;
+
+  var textoParaCompartir = "Lugar: " + lugar + "\nFecha y Hora: " + fechaHora + "\nAltura de las Olas: " + alturaOlas + "\nPeriodo de las Olas: " + periodoOlas + "\nDirección de las Olas: " + direccionOlas + "\nCondiciones del Viento: " + condicionesViento + "\nTemperatura del Agua: " + temperaturaAgua + "\nMarea: " + marea + "\nAlertas de Seguridad: " + alertasSeguridad;
+
+  // Ahora puedes usar 'textoParaCompartir' para compartir la información.
+  // Por ejemplo, puedes mostrarla en un alert:
+  alert(textoParaCompartir);
+});
+</script>
 
 	  <p> Versión: 0.0.1 </p>
 	  
