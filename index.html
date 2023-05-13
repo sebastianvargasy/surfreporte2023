@@ -60,10 +60,15 @@
     <p id="fechaHora"></p>
   </div>
 	  
-	  
-	  <div class="form-group">
-  <label for="imagen">📷 Cargar imagen</label>
-  <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*">
+<!-- Seleccionar imagen -->
+<div class="form-group">
+  <label for="imagen">Cargar imagen 📷</label>
+  <input type="file" id="imagen" class="form-control" accept="image/*">
+</div>
+
+<!-- Mostrar imagen -->
+<div class="form-group">
+  <img id="imagenMostrada" src="#" alt="Imagen cargada" style="display: none;">
 </div>
 
 	  
@@ -188,16 +193,17 @@
 </script>
 	  
 	  
-	  <script>
+<script>
   document.getElementById('imagen').addEventListener('change', function(e) {
     var reader = new FileReader();
     reader.onload = function(e) {
-      document.getElementById('imagenPrevista').src = e.target.result;
-      document.getElementById('imagenPrevista').style.display = 'block';
+      document.getElementById('imagenMostrada').src = e.target.result;
+      document.getElementById('imagenMostrada').style.display = 'block';
     };
     reader.readAsDataURL(e.target.files[0]);
   });
 </script>
+
 
 <script>
 document.getElementById('compartirBtn').addEventListener('click', function() {
